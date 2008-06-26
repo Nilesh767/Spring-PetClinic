@@ -1,8 +1,10 @@
 package com.n3o.springpetclinic.bootstrap;
 
 import com.n3o.springpetclinic.model.Owner;
+import com.n3o.springpetclinic.model.PetType;
 import com.n3o.springpetclinic.model.Vet;
 import com.n3o.springpetclinic.services.OwnerService;
+import com.n3o.springpetclinic.services.PetTypeService;
 import com.n3o.springpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,11 +13,13 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
@@ -43,6 +47,16 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Vets Loaded");
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCatType = petTypeService.save(cat);
+
+        System.out.println("PetType Loaded");
 
     }
 }
