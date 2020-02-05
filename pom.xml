@@ -39,6 +39,7 @@
         </plugins>
     </build>
     <scm>
-        <developerConnection>scm:git:https://github.com/Nilesh767/Spring-PetClinic.git</developerConnection>
+        <connection>scm:git:http://${Nilesh767}:${preneon@767}@github.com/Nilesh767/Spring-PetClinic.git</connection>
+        <url>https://github.com/Nilesh767/Spring-PetClinic.git</url>
     </scm>
 </project>
