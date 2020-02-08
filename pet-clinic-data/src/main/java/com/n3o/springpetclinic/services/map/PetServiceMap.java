@@ -1,18 +1,19 @@
 package com.n3o.springpetclinic.services.map;
 
-import com.n3o.springpetclinic.model.Vet;
-import com.n3o.springpetclinic.services.CrudService;
+import com.n3o.springpetclinic.model.Pet;
+import com.n3o.springpetclinic.services.PetService;
 
 import java.util.Set;
 
-public class VetMapService  extends AbstractMapService<Vet,Long> implements CrudService<Vet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
+
     @Override
-    public Set<Vet> findAll() {
+    public Set<Pet> findAll() {
         return super.findAll();
     }
 
     @Override
-    public void delete(Vet object) {
+    public void delete(Pet object) {
         super.delete(object);
     }
 
@@ -22,12 +23,12 @@ public class VetMapService  extends AbstractMapService<Vet,Long> implements Crud
     }
 
     @Override
-    public Vet findById(Long id) {
+    public Pet findById(Long id) {
         return super.findById(id);
     }
 
     @Override
-    public Vet save(Vet object) {
+    public Pet save(Pet object) {
         return super.save(object.getId(),object);
     }
 }
