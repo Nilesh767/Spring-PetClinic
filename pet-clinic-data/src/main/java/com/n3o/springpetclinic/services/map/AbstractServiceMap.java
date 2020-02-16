@@ -4,7 +4,7 @@ import com.n3o.springpetclinic.model.BaseEntity;
 
 import java.util.*;
 
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractServiceMap<T extends BaseEntity, ID extends Long> {
     protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll() {
@@ -35,13 +35,13 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
     private Long getNextId(){
-        Long nextid = null;
+        Long nextId = null;
         try {
-            nextid = Collections.max(map.keySet()) + 1;
+            nextId = Collections.max(map.keySet()) + 1;
         }catch (NoSuchElementException e){
-            nextid = 1L;
+            nextId = 1L;
         }
-        return nextid;
+        return nextId;
     }
 
 }
