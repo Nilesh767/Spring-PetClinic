@@ -16,12 +16,12 @@ public abstract class AbstractServiceMap<T extends BaseEntity, ID extends Long> 
     }
 
     T save(T object) {
-        if(object != null){
-            if(object.getId() == null){
+        if (object != null) {
+            if (object.getId() == null) {
                 object.setId(getNextId());
             }
             map.put(object.getId(), object);
-        }else{
+        } else {
             throw new RuntimeException("Object is null");
         }
         return object;
@@ -34,11 +34,12 @@ public abstract class AbstractServiceMap<T extends BaseEntity, ID extends Long> 
     void delete(T object) {
         map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
-    private Long getNextId(){
+
+    private Long getNextId() {
         Long nextId = null;
         try {
             nextId = Collections.max(map.keySet()) + 1;
-        }catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             nextId = 1L;
         }
         return nextId;
