@@ -88,7 +88,6 @@ class VisitControllerTest {
         ;
     }
 
-
     @Test
     void processNewVisitForm() throws Exception {
         mockMvc.perform(post(visitsUri)
