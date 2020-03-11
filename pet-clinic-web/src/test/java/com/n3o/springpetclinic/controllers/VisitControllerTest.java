@@ -95,7 +95,7 @@ class VisitControllerTest {
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("date","2018-11-11")
                 .param("description", YET_ANOTHER_VISIT_DESCRIPTION))
-                .andExpect(status().isOk())
+                .andExpect(status().is3xxRedirection())
                 .andExpect(model().attributeExists("visit"))
         ;
     }
